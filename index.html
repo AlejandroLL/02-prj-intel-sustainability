@@ -120,22 +120,5 @@
      </div>
   </footer>
 
-  <!-- Touch-friendly overlay interaction -->
-  <script>
-    document.querySelectorAll('article').forEach(article => {
-      article.addEventListener('click', function() {
-        // Toggle the overlay on this article
-        this.classList.toggle('show-overlay');
-        
-        // Close other articles' overlays for better UX
-        document.querySelectorAll('article.show-overlay').forEach(other => {
-          if (other !== this) {
-            other.classList.remove('show-overlay');
-          }
-        });
-      });
-    });
-  </script>
-
 </body>
 </html>
