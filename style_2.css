@@ -1,0 +1,234 @@
+
+    :root {
+      --intel-blue: #0068b5;
+      --intel-light-blue: #00c7fd;
+      --text-dark: #1f1f1f;
+      --text-light: #5e5e5e;
+      --bg-light: #f4f7f9;
+      --white: #ffffff;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+      --header-focus-y: 32%;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      /* Radial droplet using Intel logo blues from 1990s (deep blue) through 2026 (bright aqua) */
+      background: radial-gradient(circle at 50% var(--header-focus-y),
+
+      #00c7fd 0%,   /* 1990s wordmark deep blue */
+      #00a3e0 22%,  /* early 2000s refreshed blue */
+      #0068b5 45%,  /* mid-2000s swirl blue */
+      #005fa3 70%,  /* 2020 rebrand blue */
+      #003399 95%   /* 2026 bright aqua highlight */
+        
+      );
+      color: var(--white);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: 15px;
+      letter-spacing: -0.02em;
+    }
+
+    .timeline-container {
+      padding: 40px 0 20px;
+      max-width: 100vw;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: var(--intel-blue) transparent;
+    }
+
+    .timeline-container::-webkit-scrollbar {
+      height: 6px;
+    }
+    .timeline-container::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 10px;
+    }
+    .timeline-container::-webkit-scrollbar-thumb:hover {
+      background: var(--intel-blue);
+    }
+
+    .page-wrap {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 30px;
+      padding: 20px 40px 40px;
+      width: max-content;
+    }
+
+    article {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(0,0,0,0.05);
+      position: relative;
+      width: calc((100vw - 110px) / 4);
+      min-width: 280px;
+      scroll-margin-left: 40px;
+    }
+
+    /* Original Hover Interaction: Lift + Deep Shadow */
+    article:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+      border-color: var(--intel-blue);
+    }
+
+    /* Target highlight removed as requested */
+
+    article h2 {
+      font-size: 0.9rem;
+      color: var(--intel-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 20px 25px 5px;
+    }
+
+    article h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      padding: 0 25px;
+      color: var(--text-dark);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .image-container {
+      position: relative;
+      height: 250px;
+      background: #f8fafc; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: auto;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; 
+    }
+
+    article.contain-img .image-container img {
+      object-fit: contain;
+      padding: 20px;
+    }
+
+    /* Original Overlay: Slide up with fade */
+    .overlay-text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 104, 181, 0.92);
+      color: white;
+      padding: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      opacity: 0;
+      transition: var(--transition);
+      transform: translateY(20px);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      z-index: 2;
+    }
+
+    article:hover .overlay-text {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Navigation Dots */
+    .nav-dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 0 40px;
+      background: var(--bg-light);
+    }
+
+    .dot {
+      width: 40px;
+      height: 8px;
+      border-radius: 4px;
+      background: #cbd5e1;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .dot:hover {
+      background: var(--intel-light-blue);
+    }
+
+    .dot:active, .dot:focus {
+      background: var(--intel-blue);
+      width: 60px;
+      outline: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: var(--white);
+      border-top: 1px solid #e2e8f0;
+    }
+
+    @media (max-width: 1024px) {
+      article {
+        width: calc((100vw - 110px) / 2.2);
+      }
+    }
+
+    @media (max-width: 600px) {
+      article {
+        width: calc(100vw - 80px);
+      }
+    }
+
+/*
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.body {
+    max-width: 100vw; 
+}
+*/

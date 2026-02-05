@@ -1,6 +1,10 @@
 /* Add your CSS here */
 
 /* Reset default margin and padding */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -93,9 +97,9 @@ section article {
   /* Add padding inside each card - scales with viewport */
   padding: clamp(15px, 1.2vw, 30px);
   
-  /* Set minimum width so 2 cards fit on screen */
-  /* calc(50% - 10px) accounts for the gap between cards */
-  max-width: calc(25% - 10px);
+  /* Set minimum width so cards are larger */
+  /* calc(35% - 10px) accounts for the gap between cards */
+  max-width: calc(35% - 10px);
   min-height: clamp(200px, 15vw, 350px);
   /* Prevent cards from shrinking */
   flex-shrink: 0;
@@ -127,8 +131,8 @@ section article {
   /* Rounded corners - scales with viewport */
   border-radius: clamp(4px, 0.3vw, 8px);
   
-  /* Set minimum height to ensure text is readable - scales with viewport */
-  min-height: clamp(180px, 13vw, 300px);
+  /* Match the 1968 Intel logo aspect ratio (500:283) */
+  aspect-ratio: 500 / 283;
   
   /* Ensure container maintains aspect ratio */
   display: flex;
@@ -143,9 +147,6 @@ section article {
 section article img {
   /* Make images responsive */
   width: 100%;
-  
-  /* Set minimum height to match container - scales with viewport */
-  min-height: clamp(180px, 13vw, 300px);
   
   /* Contain the full image without cropping */
   object-fit: contain;
@@ -181,12 +182,18 @@ section article img {
   color: white;
   
   /* Add padding - scales with viewport */
-  padding: clamp(15px, 1.2vw, 25px);
+  /* More padding on top and bottom, less on sides */
+  padding: clamp(5px, 3vw, 50px) clamp(10px, 2vw, 40px);
   
   /* Center text vertically */
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  /* Allow text to wrap and stay within bounds */
+  overflow: hidden;
+  word-wrap: break-word;
+  white-space: normal;
   
   /* Initially hidden */
   opacity: 0;
@@ -246,11 +253,17 @@ footer p {
 
 /* Small screens (mobile and tablet) - vertical stacking */
 @media (max-width: 780px) {
-  /* Center the page content */
+  /* Center the page content without shrinking full-width sections */
   body {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
+  }
+  
+  /* Ensure header fits the viewport width */
+  header {
+    width: 100%;
+    padding: clamp(20px, 4vw, 32px) clamp(5px, 1vw, 20px);
   }
   
   /* Center and constrain the section width */
@@ -260,12 +273,12 @@ footer p {
     /* Stack items vertically */
     flex-direction: column;
     /* Add padding for spacing */
-    padding: clamp(20px, 3vw, 40px) clamp(15px, 2vw, 30px);
+    padding: clamp(12px, 4vw, 20px) clamp(10px, 4vw, 18px);
     /* Center the articles */
     align-items: center;
     /* Constrain max width for better centering */
     width: 100%;
-    max-width: clamp(300px, 90vw, 600px);
+    max-width: 100%;
   }
   
   /* Larger cards that are centered */
@@ -274,19 +287,27 @@ footer p {
     width: 100%;
     max-width: 100%;
     /* Make articles larger */
-    min-height: clamp(300px, 60vh, 500px);
-    padding: clamp(20px, 2.5vw, 35px);
+    min-height: clamp(200px, 40vh, 400px);
+    padding: clamp(20px, 2.5vw, 35px) clamp(15px, 1.5vw, 30px);
     /* No shrinking */
     flex-shrink: 0;
   }
   
   /* Ensure images are larger on small screens */
   .image-container {
-    min-height: clamp(200px, 35vh, 350px);
+    /* Let the container shrink on tiny screens */
+    width: 100%;
+    max-width: 100%;
+    min-height: clamp(140px, 22vh, 260px);
+    /* Drop the fixed aspect ratio so it can fit */
+    aspect-ratio: auto;
   }
   
   section article img {
-    min-height: clamp(200px, 35vh, 350px);
+    /* Scale image to fit container */
+    width: 100%;
+    height: auto;
+    max-height: clamp(160px, 28vh, 320px);
   }
 }
 
@@ -300,9 +321,14 @@ footer p {
   
   /* Show 4 cards per screen */
   section article {
+
+    /*
+    
     width: calc(25% - 15px);
     max-width: calc(25% - 15px);
     min-width: calc(25% - 15px);
+    
+    */
   }
 }
 
