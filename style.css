@@ -61,6 +61,7 @@ h2 {
   margin: clamp(10px, 0.8vw, 15px) 0 clamp(5px, 0.5vw, 10px);
 }
 
+
 h3 {
   font-size: clamp(16px, 1.2vw, 28px);
   margin: clamp(8px, 0.6vw, 12px) 0;
@@ -317,18 +318,6 @@ footer p {
   section {
     flex-direction: row;
     overflow-x: auto;
-  }
-  
-  /* Show 4 cards per screen */
-  section article {
-
-    /*
-    
-    width: calc(25% - 15px);
-    max-width: calc(25% - 15px);
-    min-width: calc(25% - 15px);
-    
-    */
   }
 }
 

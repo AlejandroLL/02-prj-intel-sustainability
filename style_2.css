@@ -222,6 +222,118 @@
       }
     }
 
+    /* AI helper section */
+    .ai-section {
+      background: var(--bg-light);
+      padding: 10px 20px 40px;
+    }
+
+    .ai-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--white);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    .ai-wrap h2 {
+      margin-bottom: 8px;
+      color: var(--intel-blue);
+      font-size: 1.5rem;
+    }
+
+    .ai-wrap p {
+      margin-bottom: 12px;
+    }
+
+    .ai-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .ai-form label {
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .ai-form textarea {
+      width: 100%;
+      border: 1px solid #bdd8f4;
+      border-radius: 8px;
+      padding: 12px;
+      font: inherit;
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .ai-form textarea:focus {
+      outline: 2px solid #8cc5f8;
+      border-color: var(--intel-blue);
+    }
+
+    .ai-form button {
+      align-self: flex-start;
+      background: var(--intel-blue);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .ai-form button:hover {
+      background: #004b82;
+      transform: translateY(-1px);
+    }
+
+    .ai-form button:disabled {
+      background: #7aa7cd;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .ai-response {
+      margin-top: 16px;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 14px;
+    }
+
+    .ai-response h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+    }
+
+    #ai-status {
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+
+    #ai-answer {
+      white-space: pre-wrap;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px;
+      min-height: 60px;
+    }
+
+    @media (max-width: 600px) {
+      .ai-wrap {
+        padding: 16px;
+      }
+
+      .ai-form button {
+        width: 100%;
+      }
+    }
+
 /*
 * {
     box-sizing: border-box;

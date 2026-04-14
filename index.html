@@ -21,6 +21,7 @@
     </div>
   </header>
 
+  <!-- Timeline cards -->
   <main class="timeline-container">
     <div class="page-wrap">
 
@@ -108,17 +109,47 @@
     </div>
   </main>
 
+  <!-- Quick jump navigation -->
   <nav class="nav-dots">
-    <a href="#milestone-start" class="dot"></a>
-    <a href="#milestone-middle" class="dot"></a>
-    <a href="#milestone-end" class="dot"></a>
+    <a href="#milestone-start" class="dot" aria-label="Go to beginning of timeline"></a>
+    <a href="#milestone-middle" class="dot" aria-label="Go to middle of timeline"></a>
+    <a href="#milestone-end" class="dot" aria-label="Go to end of timeline"></a>
   </nav>
-  
+
+  <!-- Intel museum guide question area -->
+  <section class="ai-section" aria-labelledby="ai-title">
+    <div class="ai-wrap">
+      <h2 id="ai-title">Talk to an Intel Museum Guide</h2>
+
+      <form id="ai-form" class="ai-form">
+        <label for="user-question">Ask the guide</label>
+        <textarea
+          id="user-question"
+          name="user-question"
+          rows="4"
+          placeholder="Example: Which Intel invention changed computing in 1971?"
+          required
+        ></textarea>
+        <button type="submit" id="ask-button">Ask the Guide</button>
+      </form>
+
+      <div class="ai-response" aria-live="polite">
+        <h3>Guide Response</h3>
+        <p id="ai-status">Type a question and click "Ask the Guide".</p>
+        <p id="ai-answer"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
     <div class="page-wrap-footer">
       <p>Explore the timeline &bull; Click cards to learn more!</p>
      </div>
   </footer>
+
+  <script src="secrets.js"></script>
+  <script src="app.js"></script>
 
 </body>
 </html>
